@@ -1,0 +1,14 @@
+{
+  "name": "inkscape-automation-cards",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jsdom": "^16.5.2"
+  }
+}
