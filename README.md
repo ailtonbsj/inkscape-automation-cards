@@ -11,5 +11,5 @@ npm i
 
 Automate with command:
 ```bash
-npm run start model.svg ./photos/
+npm run start model.svg ./photos/ 150
 ```

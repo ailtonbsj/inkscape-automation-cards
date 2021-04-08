@@ -6,12 +6,13 @@ const { JSDOM } = jsdom
 /*
 # COMAND
 
-npm run start model.svg ./photos/
+npm run start model.svg ./photos/ 150
 
 ARGUMENTS
 
 model.svg -> Model of image SVG
-./photos/    -> folder with images
+./photos/ -> folder with images
+150       -> Distance between cards 
 
 # SVG IDs
 
@@ -34,17 +35,18 @@ function personalNameCase (str) {
 
 const figure = process.argv[2]
 const folder = process.argv[3]
+const offset = parseInt(process.argv[4])
 
 const data = fs.readFileSync(figure, { encoding: 'utf8', flag: 'r' })
 const dom = new JSDOM(data)
 
-let offset = 150
+let distance = offset
 let pathName = './alunos/'
 fs.readdirSync(folder).forEach(function (fileName) {
   const fileNameArgs = fileName.split('.jpg')[0].split(',')
   const card = dom.window.document.querySelector('#card').cloneNode(true)
-  card.setAttribute('transform', `translate(${offset},0)`)
-  offset += 150
+  card.setAttribute('transform', `translate(${distance},0)`)
+  distance += offset
   const arg1 = card.querySelector('#arg1')
   arg1.innerHTML = arg1.innerHTML.replace('Argumento1', fileNameArgs[0] + ' Pontos')
   const arg2 = card.querySelector('#arg2')
